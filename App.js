@@ -1,21 +1,60 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+
+import styled from 'styled-components/native'
+
+const DATA = [
+    {
+        x: 0,
+        y: 0,
+        letter: 'h',
+        empty: false,
+    },
+    {
+        x: 0,
+        y: 1,
+        letter: 'e',
+        empty: false,
+    },
+    {
+        x: 0,
+        y: 2,
+        letter: 'j',
+        empty: false,
+    },
+    {
+        x: 1,
+        y: 1,
+        letter: 'k',
+    },
+]
+
+const SIZE = 48
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <Container>
+            {DATA.map(({ x, y, letter, empty }) => {
+                return (
+                    <Square
+                        style={{
+                            height: SIZE,
+                            width: SIZE,
+                            left: SIZE * x,
+                            top: SIZE * y,
+                        }}
+                    />
+                )
+            })}
+        </Container>
+    )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Container = styled.SafeAreaView`
+    flex: 1;
+    background: #fff;
+`
+
+const Square = styled.View`
+    position: absolute;
+    border: 1px solid black;
+`
