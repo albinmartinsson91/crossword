@@ -36,6 +36,7 @@ export default function App() {
             {DATA.map(({ x, y, letter, empty }) => {
                 return (
                     <Square
+                        maxLength={1}
                         style={{
                             height: SIZE,
                             width: SIZE,
@@ -54,7 +55,8 @@ const Container = styled.SafeAreaView`
     background: #fff;
 `
 
-const Square = styled.View`
+const Square = styled.TextInput`
     position: absolute;
     border: 1px solid black;
+    text-align: center;
 `
