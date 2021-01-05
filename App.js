@@ -56,7 +56,7 @@ export default function App() {
     return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
             <Container>
-                {DATA.map(({ index, x, y, letter, empty, hintX, hintY }) => {
+                {DATA.map(({ x, y, letter, empty, hintX, hintY }, index) => {
                     return (
                         <Square
                             key={index}
